@@ -17,8 +17,10 @@ const PostList = () => {
   }
 
   const pageChanger = useCallback(() => {
-    if (Page < 20)
+    if (Page < 20){
       setPage(Page + 1);
+      setloading(true)
+    }
   })
 
   useEffect(() => {
