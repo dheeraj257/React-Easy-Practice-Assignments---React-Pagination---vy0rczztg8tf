@@ -3,7 +3,7 @@ import { useCallback } from 'react/cjs/react.development'
 import { PaginationButtonsList } from './PaginationButtonsList'
 import { Post } from './Post'
 
-const Loader = () => <div className='col-lg-12 justify-center' id="loader">Loading...</div>
+const Loader = () => <div className='col-lg-12 justify-center' id="loader">loading</div>
 
 const PostList = () => {
   const [Data, setData] = useState([])
@@ -36,6 +36,7 @@ const PostList = () => {
         loading ? <Loader /> :
           Data.map((currElem) => {
             return (
+              
               <Post key={currElem.id} heading={currElem.title} para={currElem.body} />
             )
           }
