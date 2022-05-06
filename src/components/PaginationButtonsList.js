@@ -1,16 +1,23 @@
 import React from 'react'
+import { useState } from 'react/cjs/react.production.min';
 // import { Post } from './Post'
 
-const PaginationButtonsList = ({ Page, handleClick }) => {
-    return (
-        <div className="col-12 d-flex justify-content-center pagination-buttons-list">
-            {     Page===1?
-                <button id={`button-${Page}`} onClick={handleClick} className="active-btn  btn btn-primary">Next</button>
+const PaginationButtonsList = ({handleClick}) => {
+    
 
-            :      <button id={`button-${Page}`} onClick={handleClick} className="  btn btn-primary">Next</button>
-        }
-        </div>
-    )
+
+    const array1 = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
+        return (
+            <div className="col-12 d-flex justify-content-center pagination-buttons-list">
+                {
+                    array1.map((curr)=>{
+                         return   <button  id={`button-${curr}`} onClick={()=>handleClick(curr)} className={`btn active-btn`}>{curr}</button>
+                    })
+                    
+                    
+                }
+            </div>
+        )
 }
 
 export { PaginationButtonsList }

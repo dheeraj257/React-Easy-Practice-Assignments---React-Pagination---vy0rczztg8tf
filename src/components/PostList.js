@@ -3,32 +3,30 @@ import { useCallback } from 'react/cjs/react.development'
 import { PaginationButtonsList } from './PaginationButtonsList'
 import { Post } from './Post'
 
-const Loader = () => <div id="loader">Loading...</div>
+const Loader = () => <div className='col-lg-12 justify-center' id="loader">Loading...</div>
 
 const PostList = () => {
   const [Data, setData] = useState([])
   const [loading, setloading] = useState(true)
-  const [Page, setPage] = useState(1);
-
+  const [Page, setPage] = useState(0);
+ 
   const getData = async () => {
     const rawData = await fetch(`https://jsonplaceholder.typicode.com/posts?_page=${Page}&_limit=5`)
-    const data = await rawData.json()
-    return data
+    return rawData.json()
   }
 
-  const pageChanger = useCallback(() => {
-    if (Page < 20){
-      setPage(Page + 1);
+  const pageChanger = (Page) => {  
+      setPage(Page);
       setloading(true)
     }
-  })
 
   useEffect(() => {
 
-    getData().then(data => {
+    getData().then((data) => {
       setData(data)
       setloading(false);
-    }, [])
+
+    },[])
 
   }, [Data])
 
@@ -43,12 +41,13 @@ const PostList = () => {
             )
           }
           )
+          
       }
-
-      <PaginationButtonsList Page={Page} handleClick={pageChanger} />
+      <PaginationButtonsList handleClick={pageChanger} />
     </div>
+    
   )
-}
+    }
 
 
 export { PostList };
