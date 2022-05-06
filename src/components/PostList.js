@@ -16,6 +16,8 @@ const PostList = () => {
   }
 
   const pageChanger = (Page) => {  
+    document.getElementById(`button-${Page-1}`).classList.remove('active-btn')
+    document.getElementById(`button-${Page}`).classList.add('active-btn')
       setPage(Page);
       setloading(true)
     }
