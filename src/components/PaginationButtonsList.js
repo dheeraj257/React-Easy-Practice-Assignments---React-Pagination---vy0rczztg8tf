@@ -13,7 +13,7 @@ const PaginationButtonsList = ({handleClick}) => {
             <div className="col-12 d-flex justify-content-center pagination-buttons-list">
                 {
                     array1.map((curr)=>{
-                         return   <button onChange={classa}  id={`button-${curr}`} onClick={()=>handleClick(curr)} className={`btn`}>{curr}</button>
+                         return   <button key={curr} onChange={classa}  id={`button-${curr}`} onClick={()=>handleClick(curr)} className={`btn ${curr===1?'active-btn':''}`}>{curr}</button>
                     })
                     
                     

@@ -39,7 +39,7 @@ const PostList = () => {
         loading ? <Loader /> :
           Data.map((currElem) => {
             return (
-              <Post heading={currElem.title} para={currElem.body} />
+              <Post key={currElem.id} heading={currElem.title} para={currElem.body} />
             )
           }
           )
