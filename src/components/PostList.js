@@ -3,7 +3,9 @@ import { useCallback } from 'react/cjs/react.development'
 import { PaginationButtonsList } from './PaginationButtonsList'
 import { Post } from './Post'
 
-const Loader = () => <div className='col-lg-12 justify-center' id="loader">loading</div>
+const Loader = () => <div id="loader">
+  <img width={50}  height={50} src="https://cdn-icons-png.flaticon.com/512/248/248958.png" alt="" />
+</div>
 
 const PostList = () => {
   const [Data, setData] = useState([])
@@ -24,13 +26,13 @@ const PostList = () => {
     getData().then((data) => {
       setData(data)
       setloading(false);
-
     }, [])
 
-  }, [Data])
+  },[Page])
 
 
   return (
+    <>
     <div id="main">
       {
         loading ? <Loader /> :
@@ -43,9 +45,10 @@ const PostList = () => {
           )
 
       }
-      <PaginationButtonsList Page={Page} handleClick={pageChanger} />
+     
     </div>
-
+    <PaginationButtonsList Page={Page} handleClick={pageChanger} />
+</>
   )
 }
 

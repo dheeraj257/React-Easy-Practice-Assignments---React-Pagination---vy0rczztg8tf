@@ -1,3 +1,16 @@
 .active-btn{
     background-color: red !important;
 }
+#main{
+
+    height: 70vh !important;
+}
+
+
+#loader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh ;
+    
+}
